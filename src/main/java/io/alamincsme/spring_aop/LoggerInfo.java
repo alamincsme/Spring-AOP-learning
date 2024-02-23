@@ -26,8 +26,22 @@ public class LoggerInfo {
     public void zoom () {
 
     }
+
+
    @Before("cameraSnap() || zoom()")
     public void aboutToTakePhoto() {
         System.out.println("About to take photo ........");
     }
+
+    @Pointcut("execution(* io.alamincsme.spring_aop.Camera+.*(..))")
+    public void cameraActivity() {
+
+    }
+
+    @Before("cameraActivity()")
+    public void cameraRelatedActivity() {
+        System.out.println("doing something related to camera ....");
+    }
+
+
 }
