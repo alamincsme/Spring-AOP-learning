@@ -1,4 +1,4 @@
-package io.alamincsme.spring_aop;
+package io.alamincsme.spring_aop.camera;
 
 
 import org.aspectj.lang.annotation.Aspect;
@@ -13,12 +13,14 @@ import org.springframework.stereotype.Component;
 public class LoggerInfo {
 
 
-    @Pointcut ("execution(public void snap())")
+
+
+   Logger logger = LoggerFactory.getLogger("LoggerInfo");
+
+    @Pointcut ("execution( * io.alamincsme.spring_aop.camera.Camera+.*(..))")
     public void cameraSnap(){
 
     }
-
-   Logger logger = LoggerFactory.getLogger("LoggerInfo");
 
    @Before("cameraSnap()")
     public void aboutToTakePhoto() {
