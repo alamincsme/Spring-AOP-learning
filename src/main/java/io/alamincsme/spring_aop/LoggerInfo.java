@@ -1,6 +1,7 @@
 package io.alamincsme.spring_aop;
 
 
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -63,5 +64,21 @@ public class LoggerInfo {
     @AfterReturning("cameraSnap()")
     public void afterReturning() {
         System.out.println("after returning advice ........");
+    }
+
+    @AfterThrowing("cameraSnap()")
+    public void afterThrowing() {
+        System.out.println("after Throwing advice......");
+    }
+
+    @Around("cameraSnap()")
+    public void aroundAdvice(ProceedingJoinPoint p) {
+        System.out.println("around advice ( before....)");
+        try {
+            p.proceed();
+        } catch (Throwable e) {
+            System.out.println(e.getMessage());
+        }
+        System.out.println("around advice (after.....)");
     }
 }

@@ -11,15 +11,13 @@ public class SpringAopLearningApplication {
 
 		ApplicationContext context = SpringApplication.run(SpringAopLearningApplication.class, args);
 		Camera camera = context.getBean(Camera.class);
-		camera.snap();
-		camera.snap(1000);
-		camera.snap("Perliament House");
-		camera.snapNightTime();
+        try {
+            camera.snap();
+        } catch (Exception e) {
+			System.out.println(e.getMessage());
+        }
 
-		Lense lense = context.getBean(Lense.class);
-		lense.zoom(10);
 
-		
-	}
+    }
 
 }

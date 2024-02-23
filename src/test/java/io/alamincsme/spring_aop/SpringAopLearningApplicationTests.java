@@ -1,4 +1,4 @@
-package io.alamincsme.springaoplearning;
+package io.alamincsme.spring_aop;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
