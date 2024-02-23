@@ -13,4 +13,13 @@ public class Camera {
     public void snap(int exposure) {
         System.out.println("SNAP With exposure : " + exposure);
     }
+
+    public String snap(String name) {
+        System.out.println("SNAP With name : " + name);
+        return name;
+    }
+
+    public void snapNightTime () {
+        System.out.println("SNAP! Night mode.");
+    }
 }
