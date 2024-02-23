@@ -1,4 +1,4 @@
-package io.alamincsme.spring_aop.camera;
+package io.alamincsme.spring_aop;
 
 
 import org.aspectj.lang.annotation.Aspect;
@@ -17,12 +17,16 @@ public class LoggerInfo {
 
    Logger logger = LoggerFactory.getLogger("LoggerInfo");
 
-    @Pointcut ("execution( * io.alamincsme.spring_aop.camera.Camera+.*(..))")
+    @Pointcut ("execution( * io.alamincsme.spring_aop.Camera+.*(..))")
     public void cameraSnap(){
 
     }
 
-   @Before("cameraSnap()")
+    @Pointcut("execution(* io.alamincsme.spring_aop.Lense+.*(..))")
+    public void zoom () {
+
+    }
+   @Before("cameraSnap() || zoom()")
     public void aboutToTakePhoto() {
         System.out.println("About to take photo ........");
     }
